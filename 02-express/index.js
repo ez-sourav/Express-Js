@@ -12,12 +12,7 @@ let data = [
     batch: "2023-2027",
     dept: "BCA",
   },
-  {
-    id: 1,
-    name: "Sourav BIswas",
-    batch: "2023-2027",
-    dept: "BCA",
-  },
+
   {
     id: 2,
     name: "Sourav BIswas",
