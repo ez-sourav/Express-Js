@@ -28,7 +28,7 @@ let data = [
 ];
 
 app.get("/profiles", (request, res) => {
-  res.type("application/json");
+  // res.type("application/json");
   res.send(data);
 });
 
