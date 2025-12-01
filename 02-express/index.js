@@ -33,15 +33,9 @@ app.get("/profiles", (request, res) => {
 });
 
 app.post("/profiles", (req, res) => {
-  const reqData = req.body;
-  const newBody = {
-    id: id,
-    name: reqData.name,
-    batch: reqData.batch,
-    dept: reqData.dept,
-  };
-
-  data.push(newBody);
+  const { name, batch, dept } = req.body;
+  const newProfile = { id: id++, name, batch, dept };
+  data.push(newProfile);
 
   id += 1;
   res.send();
