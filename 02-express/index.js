@@ -36,9 +36,7 @@ app.post("/profiles", (req, res) => {
   const { name, batch, dept } = req.body;
   const newProfile = { id: id++, name, batch, dept };
   data.push(newProfile);
-
-  id += 1;
-  res.send();
+  res.status(201).json(newProfile);
 });
 
 app.delete("/profiles/:id", (req, res) => {
