@@ -40,7 +40,7 @@ app.post("/profiles", (req, res) => {
 });
 
 app.delete("/profiles/:id", (req, res) => {
-  const reqId = req.params.id;
+  const reqId = Number(req.params.id);
   console.log(reqId);
 
   data = data.filter((ele) => ele.id != reqId);
