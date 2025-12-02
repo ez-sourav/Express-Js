@@ -51,19 +51,16 @@ app.delete("/profiles/:id", (req, res) => {
 app.put("/profiles/:id", (req, res) => {
   const reqId = Number(req.params.id);
   const index = data.findIndex((p) => p.id === reqId);
+  if (index === -1)
+    return res.status(404).json({
+      message: "Profile not found",
+    });
 
-  console.log(profile);
-
-  const reqBody = req.body;
-  const newProfile = {
-    id: profile.id,
-    name: reqBody.name ? reqBody.name : profile.name,
-    batch: reqBody.batch ? reqBody.batch : profile.batch,
-    dept: reqBody.dept ? reqBody.dept : profile.dept,
+  data[index] = {
+    ...data[index], 
+    ...req.body,
   };
-  data = data.filter((ele) => ele.id != reqId);
-  data.push(newProfile);
-  res.send(newProfile);
+  res.json(data[index]);
 });
 app.listen(port, () => {
   console.log("Server Started, port: ", port);
