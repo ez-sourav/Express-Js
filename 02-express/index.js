@@ -42,9 +42,8 @@ app.post("/profiles", (req, res) => {
 app.delete("/profiles/:id", (req, res) => {
   const reqId = Number(req.params.id);
   console.log(reqId);
-
-  data = data.filter((ele) => ele.id != reqId);
-  res.send();
+  data = data.filter((profile) => profile.id !== reqId);
+  res.json({ message: "Profile deleted successfully" });
 });
 
 app.put("/profiles/:id", (req, res) => {
