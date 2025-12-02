@@ -43,7 +43,9 @@ app.delete("/profiles/:id", (req, res) => {
   const reqId = Number(req.params.id);
   console.log(reqId);
   data = data.filter((profile) => profile.id !== reqId);
-  res.json({ message: "Profile deleted successfully" });
+  res.json({
+    message: "Profile deleted successfully",
+  });
 });
 
 app.put("/profiles/:id", (req, res) => {
@@ -51,7 +53,7 @@ app.put("/profiles/:id", (req, res) => {
   const profile = data.filter((ele) => ele.id === reqId)[0];
 
   console.log(profile);
-  
+
   const reqBody = req.body;
   const newProfile = {
     id: profile.id,
