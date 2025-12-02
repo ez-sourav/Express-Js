@@ -33,7 +33,8 @@ app.get("/profiles", (request, res) => {
 });
 
 app.get('/profiles/:id',(req,res)=>{
-  
+    const resId = Number(req.params.id)
+    res.send(resId)
 })
 
 app.post("/profiles", (req, res) => {
