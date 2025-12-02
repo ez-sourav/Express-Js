@@ -34,7 +34,10 @@ app.get("/profiles", (request, res) => {
 
 app.get('/profiles/:id',(req,res)=>{
     const resId = Number(req.params.id)
-    res.send(resId)
+    // res.send(resId)
+    const profile = data.find((e) => e.id === resId);
+    res.send(profile)
+    console.log(profile);
 })
 
 app.post("/profiles", (req, res) => {
