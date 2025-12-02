@@ -32,17 +32,16 @@ app.get("/profiles", (request, res) => {
   res.send(data);
 });
 
-app.get('/profiles/:id',(req,res)=>{
-    const resId = Number(req.params.id)
-    const profile = data.find((e) => e.id === resId);
-    if(!profile){
-      return res.status(404).json({
-        message:"Profile Not Found!"
-      });
-    }
-    res.send(profile)
-    
-})
+app.get("/profiles/:id", (req, res) => {
+  const resId = Number(req.params.id);
+  const profile = data.find((e) => e.id === resId);
+  if (!profile) {
+    return res.status(404).json({
+      message: "Profile Not Found!",
+    });
+  }
+  res.send(profile);
+});
 
 app.post("/profiles", (req, res) => {
   const { name, batch, dept } = req.body;
@@ -69,7 +68,7 @@ app.put("/profiles/:id", (req, res) => {
     });
 
   data[index] = {
-    ...data[index], 
+    ...data[index],
     ...req.body,
   };
   res.json(data[index]);
