@@ -34,10 +34,14 @@ app.get("/profiles", (request, res) => {
 
 app.get('/profiles/:id',(req,res)=>{
     const resId = Number(req.params.id)
-    // res.send(resId)
     const profile = data.find((e) => e.id === resId);
+    if(!profile){
+      return res.status(404).json({
+        message:"Profile Not Found!"
+      });
+    }
     res.send(profile)
-    console.log(profile);
+    
 })
 
 app.post("/profiles", (req, res) => {
