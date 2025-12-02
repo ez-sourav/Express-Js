@@ -49,8 +49,8 @@ app.delete("/profiles/:id", (req, res) => {
 });
 
 app.put("/profiles/:id", (req, res) => {
-  const reqId = parseInt(req.params.id);
-  const profile = data.filter((ele) => ele.id === reqId)[0];
+  const reqId = Number(req.params.id);
+  const index = data.findIndex((p) => p.id === reqId);
 
   console.log(profile);
 
