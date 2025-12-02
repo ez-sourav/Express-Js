@@ -32,6 +32,10 @@ app.get("/profiles", (request, res) => {
   res.send(data);
 });
 
+app.get('/profiles/:id',(req,res)=>{
+  
+})
+
 app.post("/profiles", (req, res) => {
   const { name, batch, dept } = req.body;
   const newProfile = { id: id++, name, batch, dept };
