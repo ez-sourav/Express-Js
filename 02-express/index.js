@@ -52,6 +52,8 @@ app.post("/profiles", (req, res) => {
 
 app.delete("/profiles/:id", (req, res) => {
   const reqId = Number(req.params.id);
+  const exsits = data.some((profile)=> profile.id === reqId);
+  
   console.log(reqId);
   data = data.filter((profile) => profile.id !== reqId);
   res.json({
