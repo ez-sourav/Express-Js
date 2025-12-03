@@ -58,7 +58,8 @@ app.delete("/profiles/:id", (req, res) => {
       message:"Profile not found, delete failed"
     });
   }
-  data = data.filter((profile) => profile.id !== reqId);
+  
+  data = data.filter((profile) => profile.id === reqId)
   res.json({
     message: "Profile deleted successfully",
   });
