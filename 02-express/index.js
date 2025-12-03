@@ -60,6 +60,7 @@ app.delete("/profiles/:id", (req, res) => {
   }
 
   data = data.filter((profile) => profile.id === reqId);
+  
   res.json({
     message: "Profile deleted successfully",
   });
