@@ -52,14 +52,14 @@ app.post("/profiles", (req, res) => {
 
 app.delete("/profiles/:id", (req, res) => {
   const reqId = Number(req.params.id);
-  const exsits = data.some((profile)=> profile.id === reqId);
-  if(!exsits){
+  const exsits = data.some((profile) => profile.id === reqId);
+  if (!exsits) {
     return res.status(404).json({
-      message:"Profile not found, delete failed"
+      message: "Profile not found, delete failed",
     });
   }
-  
-  data = data.filter((profile) => profile.id === reqId)
+
+  data = data.filter((profile) => profile.id === reqId);
   res.json({
     message: "Profile deleted successfully",
   });
